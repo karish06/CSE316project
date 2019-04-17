@@ -26,7 +26,37 @@ class student
         cout<<"Enter the ID number of student "<<i+1<<endl;
         cin>>id[i];
         cout<<"Enter the food taken time by the Student "<<i+1<<endl;
-        cin>>BT[i];
+        cin>>FT[i];
       	BT[i]=FT[i];
 
 	}
+sort_LRTF();
+    int current=0;
+    cout<<"All the three Students entered the queue in the given way:  "<<endl;
+    while(check()){
+        cout<<"\n"<<id[0];
+        FT[0]--;
+        current++;
+        if(FT[0]==0)
+        {
+          CT[0]=current;
+        }
+        sort_LRTF();
+    }
+    int sum_TAT = 0;
+    int sum_WT = 0;
+    int avg_TAT, avg_WT;
+    cout<<endl;
+    cout<<"STUDENT ID | BURST TIME | TURN AROUND TIME | WAITING TIME\n";
+    for(int i=0;i<3;i++){
+        cout<<id[i]<<" \t\t "<<BT[i]<<" \t\t "<<CT[i]<<" \t\t"<<CT[i] - BT[i]<<endl;
+        sum_TAT += CT[i];
+        sum_WT += BT[i];
+        
+        
+    }
+        avg_TAT=(sum_TAT/3);
+		avg_WT=(sum_WT/3);
+    cout<<endl<<"The Average Turn Around Time is : "<<avg_TAT;
+    cout<<endl<<"The Average Waiting Time is  : "<<avg_WT;
+}
