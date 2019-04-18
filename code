@@ -60,3 +60,60 @@ sort_LRTF();
     cout<<endl<<"The Average Turn Around Time is : "<<avg_TAT;
     cout<<endl<<"The Average Waiting Time is  : "<<avg_WT;
 }
+
+void TotalCompletionTime()
+{	
+    for (int i=0;i<3;i++){
+            if(FT[i]!=0)
+                CT[i] +=1;
+    }
+
+}
+
+
+void sort_LRTF(){
+	int t;
+    for(int i=1;i<3;i++){
+        for(int j=0;j<3-i;j++){
+            if(FT[j]<FT[j+1]){
+                t = FT[j];
+                FT[j]=FT[j+1];
+                FT[j+1]=t;
+                t=id[j];
+                id[j]=id[j+1];
+                id[j+1]=t;
+                t=CT[j];
+                CT[j]=CT[j+1];
+                CT[j+1]=t;
+                 t=BT[j];
+                BT[j]=BT[j+1];
+                BT[j+1]=t;
+            }
+            else if(FT[j] == FT[j+1]){
+                if(id[j]> id[j+1]){
+                     t = FT[j];
+                     FT[j]=FT[j+1];
+                     FT[j+1]=t;
+                     t=id[j];
+                id[j]=id[j+1];
+                id[j+1]=t;
+                 t=CT[j];
+                CT[j]=CT[j+1];
+                CT[j+1]=t;
+                 t=BT[j];
+                BT[j]=BT[j+1];
+                BT[j+1]=t;
+                }
+            }
+        }
+    }
+
+}
+
+};
+int main()
+{   
+	student ss;
+    ss.run();
+}
+
